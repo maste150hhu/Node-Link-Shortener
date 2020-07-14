@@ -3,6 +3,9 @@ const app = express()
 
 app.set('view-engine', 'ejs');
 app.use(express.static('public'));
+var bodyParser = require('body-parser');
+var multer = require('multer');
+var upload = multer();
 
 let database = new Map();
 
@@ -13,6 +16,17 @@ addLink("twt", "https://www.twitter.com");
 
 
 let data;
+
+// for parsing application/json
+app.use(bodyParser.json()); 
+
+// for parsing application/xwww-
+app.use(bodyParser.urlencoded({ extended: true })); 
+//form-urlencoded
+
+// for parsing multipart/form-data
+app.use(upload.array()); 
+app.use(express.static('public'));
 
 function addLink(abbreviation, destination) {
     database.set(abbreviation, destination);
@@ -31,8 +45,10 @@ app.get('/delete/:link', (req, res) => {
     res.redirect("/");   
 });
 
-app.post('/add/:link', (req, res) => {
-    database.delete(req.params.link);
+app.post('/add/', (req, res) => {
+    if(req.body.link && req.body.destination) {
+        database.set(req.body.link, req.body.destination);
+    }
     res.redirect("/");   
 });
 
