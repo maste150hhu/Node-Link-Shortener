@@ -7,6 +7,11 @@ body>*, body {
     text-align: center;
 }
 
+body {
+    width: 70%;
+    margin: auto;
+}
+
 table {
     margin: auto;
 }

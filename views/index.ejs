@@ -5,6 +5,7 @@
 
   <h3>You can add new links below:</h3>
 
+  <hr>
   <div class="container">
     <table>
       <thead>
@@ -44,4 +45,12 @@
       <% } %>
     </table>
   </div>
+  <hr>
+  <form action="/add" method="post">
+    <label for="link">Route</label>
+    <input type="text" name="link" id="link">
+    <label for="destination">Destination</label>
+    <input type="text" name="destination" id="destination">
+    <input type="submit" value="add">
+  </form>
 </body>

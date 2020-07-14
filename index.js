@@ -6,13 +6,17 @@ app.use(express.static('public'));
 
 let database = new Map();
 
-database.set("marco", "https://www.bestofcode.net");
-database.set("ggl", "https://www.google.com");
-database.set("hhu", "https://www.hhu.de");
-database.set("twt", "https://www.twitter.com");
+addLink("marco", "https://www.bestofcode.net");
+addLink("ggl", "https://www.google.com");
+addLink("hhu", "https://www.hhu.de");
+addLink("twt", "https://www.twitter.com");
 
 
 let data;
+
+function addLink(abbreviation, destination) {
+    database.set(abbreviation, destination);
+}
 
 app.listen(3000, () => {
     console.log('App listening on port 3000!');
@@ -23,6 +27,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/delete/:link', (req, res) => {
+    database.delete(req.params.link);
+    res.redirect("/");   
+});
+
+app.post('/add/:link', (req, res) => {
     database.delete(req.params.link);
     res.redirect("/");   
 });
