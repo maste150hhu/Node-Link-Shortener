@@ -28,7 +28,7 @@
                 <%= entry[1] %>
             </td>
             <td>
-                <button onsubmit="window.location.href = '/delete/<%= entry[0] %>'">remove</button>
+                <a style="padding: 6px; border: 1px solid lightgray; background: lightcoral; color: white;" href="/delete/<%= entry[0] %>">remove</a>
             </td>
         </tr>
     <% } %>

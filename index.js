@@ -7,6 +7,10 @@ app.use(express.static(__dirname + '/css'));
 let database = new Map();
 
 database.set("marco", "https://www.bestofcode.net");
+database.set("ggl", "https://www.google.com");
+database.set("hhu", "https://www.hhu.de");
+database.set("twt", "https://www.twitter.com");
+
 
 let data;
 
