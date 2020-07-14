@@ -1,1 +1,35 @@
-<h1>Hi <%=name%></h1>
+<style>
+    tr {
+        border-bottom: 1px solid lightgray;
+        padding: 8px;
+    }
+</style>
+
+<h1>Welcome to the simple Link Shortener</h1>
+
+<h3>You can add new links below:</h3>
+
+<form>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    Route
+                </td>
+                <td>
+                    Destination
+                </td>
+            </tr>
+        </thead>
+    <% for(let entry of data) { %>
+        <tr>
+            <td>
+                <%= entry[0] %>
+            </td>
+            <td>
+                <%= entry[1] %>
+            </td>
+        </tr>
+    <% } %>
+    </table>
+</form>
