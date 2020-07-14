@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 app.get('/delete/:link', (req, res) => {
     database.delete(req.params.link);
-    res.render('index.ejs', {data: database.entries()});    
+    res.redirect("/");   
 });
 
 app.get('/:route', (req, res) => {

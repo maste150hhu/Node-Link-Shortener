@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
 <h1>Welcome to the simple Link Shortener</h1>
 
@@ -14,6 +14,9 @@
                 <td>
                     Destination
                 </td>
+                <td>
+                    Configurate
+                </td>
             </tr>
         </thead>
     <% for(let entry of data) { %>
@@ -23,6 +26,9 @@
             </td>
             <td>
                 <%= entry[1] %>
+            </td>
+            <td>
+                <button onsubmit="window.location.href = '/delete/<%= entry[0] %>'">remove</button>
             </td>
         </tr>
     <% } %>
