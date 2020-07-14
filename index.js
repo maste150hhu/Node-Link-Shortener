@@ -18,6 +18,11 @@ app.get('/', (req, res) => {
     res.render('index.ejs', {data: database.entries()});
 });
 
+app.get('/delete/:link', (req, res) => {
+    database.delete(req.params.link);
+    res.render('index.ejs', {data: database.entries()});    
+});
+
 app.get('/:route', (req, res) => {
     let destination = database.get(req.params.route);
     console.log(req.params.route);
